@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Header from "../../components/Header";
 
 export default function Home() {
   return (
@@ -10,7 +11,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main>
-        <h1>Hola Mundo</h1>
+        <div className="container">
+          <Header />
+          <h1>Hola Mundo</h1>
+        </div>
       </main>
     </>
   );

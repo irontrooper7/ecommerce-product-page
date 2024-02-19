@@ -1,0 +1,60 @@
+.header
+    .navbar
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+        position: relative
+        .navbar-brand
+            .navbar-burger
+                margin: 0px
+        .navbar-menu
+            display: block
+            height: 100vh
+            padding: 0px
+            position: absolute
+            transform: translateX(-100%)
+            transition: all 0.3s ease-out
+            top: 100%
+            width: 60%
+            &.is-active
+                transform: translateX(0%)
+            .navbar-start
+                padding: 10px 5px
+                .navbar-item
+                    font-size: 16px
+                    font-weight: 700
+        .navbar-end
+            display: flex
+            align-items: center
+            .navbar-item
+                .avatar
+                    width: 40px
+                    height: 40px
+                    img
+                        max-height: inherit
+
+@mixin header-desktop
+    .header
+        border-bottom: 1px solid $Grayish-blue
+        .navbar
+            align-items: flex-start
+            .navbar-menu
+                position: relative
+                transform: translateX(0%)
+                width: inherit
+                height: inherit
+                top: inherit
+                .navbar-start
+                    padding: 0px
+                    .navbar-item
+                        font-weight: 400
+                        margin: 0px 0.5rem
+                        padding: 1rem 0.75rem 3rem
+            .navbar-end
+                .navbar-item
+                    padding: 1rem 0.75rem 0.5rem
+                    .avatar
+                        width: 50px
+                        height: 50px
+                        img
+                            max-height: inherit
