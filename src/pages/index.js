@@ -13,7 +13,6 @@ export default function Home() {
       <main>
         <div className="container">
           <Header />
-          <h1>Hola Mundo</h1>
         </div>
       </main>
     </>

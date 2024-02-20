@@ -6,8 +6,8 @@ export default function Header() {
 	const [menuStatus, setMenuStatus] = useState(false);
 
 	useEffect(() => {
-		window.addEventListener('scroll', function() {
-			if( menuStatus === true ) {
+		window.addEventListener('scroll', function () {
+			if (menuStatus === true) {
 				setMenuStatus(false)
 			}
 		});
@@ -41,7 +41,7 @@ export default function Header() {
 					</div>
 					<div className="navbar-item">
 						<div className='avatar'>
-							<img src="/assets/image-avatar.png"  />
+							<img src="/assets/image-avatar.png" />
 						</div>
 					</div>
 				</div>
