@@ -1,5 +1,25 @@
 import Head from "next/head";
 import Header from "../../components/Header";
+import { BsCart3 } from "react-icons/bs";
+import { ImPlus, ImMinus } from "react-icons/im";
+
+
+
+const product = {
+  name: 'Fall Limited Edition Sneakers',
+  brand: 'Sneaker Company',
+  description: `These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.`,
+  price: 250.00,
+  discount: true,
+  discount_percent: .50,
+  inventory: 10,
+  images: [
+    '/assets/image-product-1.jpg',
+    '/assets/image-product-2.jpg',
+    '/assets/image-product-3.jpg',
+    '/assets/image-product-4.jpg'
+  ]
+}
 
 export default function Home() {
   return (
@@ -13,6 +33,40 @@ export default function Home() {
       <main>
         <div className="container">
           <Header />
+          <section class="hero is-fullheight">
+            <div class="hero-body">
+              <div className="product columns is-align-items-center">
+                <div className="column">
+                  <img src="/assets/image-product-1.jpg" />
+                </div>
+                <div className="column">
+                  <div className="product-info">
+                    <h6>{product.brand}</h6>
+                    <h1>{product.name}</h1>
+                    <p>{product.description}</p>
+                    {product.discount ?
+                      <>
+                        <h3>${product.price * product.discount_percent}.00 <span>{product.discount_percent * 100}%</span></h3>
+                        <h6 className="price">${product.price}</h6>
+                      </>
+                      :
+                      <h3>${product.price}</h3>
+                    }
+                    <div className="product_checkout">
+                      <div className="product_amount">
+                        <span className="icon"><ImMinus /></span>
+                        <span>3</span>
+                        <span className="icon"><ImPlus /></span>
+                      </div>
+                      <button className="button is-primary">
+                        <span className="icon is-large m-0"><BsCart3 /></span> Add to cart
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </main>
     </>

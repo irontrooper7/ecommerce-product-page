@@ -12,12 +12,12 @@ export default function ShoppingCart({ hasProduct }) {
                 </div>
                 {hasProduct && <div className="tag">3</div>}
                 <div className={`card ${shoppingCart ? 'is-active' : ''}` }>
-                    <header class="card-header">
-                        <p class="card-header-title">
+                    <header className="card-header">
+                        <p className="card-header-title">
                             Cart
                         </p>
                     </header>
-                    <div class="card-content">
+                    <div className="card-content">
                         {hasProduct ?
                             <div className="columns is-align-items-center m-0">
                                 <div className="column is-2 p-0">
@@ -39,7 +39,7 @@ export default function ShoppingCart({ hasProduct }) {
                         }
                     </div>
                     {hasProduct &&
-                        <div class="card-footer">
+                        <div className="card-footer">
                             <button className="button is-primary">
                                 Checkout
                             </button>
