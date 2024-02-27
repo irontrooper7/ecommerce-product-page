@@ -21,28 +21,54 @@
                 margin: 0px 0px 0px 1rem
         h6
             color: $primary
-            &.price
+        .product-price
+            display: flex
+            justify-content: space-between
+            align-items: center
+            h6
                 color: $Grayish-blue
-    .product_checkout
-        display: flex
-        margin: 2rem 0px 0px
-        .product_amount
-            background: $Light-grayish-blue
-            border-radius: 15px
-            display: table
-            padding: 1rem
-            margin: 0px 1rem 0px 0px
-            span
-                margin: 0px 1.5rem
-                font-weight: 700
-                color: $Black
-                &:first-child
+        .product_checkout
+            display: flex
+            flex-direction: column
+            margin: 2rem 0px 0px
+            .product_amount
+                background: $Light-grayish-blue
+                border-radius: 15px
+                display: flex
+                justify-content: space-between
+                margin: 0px 0px 1rem 0px
+                padding: 1rem
+                span
+                    margin: 0px 1.5rem
+                    font-weight: 700
+                    color: $Black
+                    &:first-child
+                        margin: 0px 1rem 0px 0px
+                    &:last-child
+                        margin: 0px 0px 0px 1rem
+                    &.icon
+                        color: $primary
+                        cursor: pointer
+            .button
+                border-radius: 15px
+                min-height: 56px
+
+@mixin product-desktop
+    .product
+        .product-info
+            .product-price
+                display: table
+            .product_checkout
+                display: flex
+                flex-direction: row
+                margin: 2rem 0px 0px
+                .product_amount
                     margin: 0px 1rem 0px 0px
-                &:last-child
-                    margin: 0px 0px 0px 1rem
-                &.icon
-                    color: $primary
-                    cursor: pointer
-        .button
-            border-radius: 15px
-            min-height: 56px
+                    span
+                        margin: 0px 1.5rem
+                        &:first-child
+                            margin: 0px 1rem 0px 0px
+                        &:last-child
+                            margin: 0px 0px 0px 1rem
+                .button
+                    min-height: 56px

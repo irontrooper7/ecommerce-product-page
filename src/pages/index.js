@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "../../components/Header";
 import { BsCart3 } from "react-icons/bs";
 import { ImPlus, ImMinus } from "react-icons/im";
+import { useState } from "react";
 
 
 
@@ -22,6 +23,7 @@ const product = {
 }
 
 export default function Home() {
+  const [productAmount, setProductAmount] = useState(0);
   return (
     <>
       <Head>
@@ -33,8 +35,8 @@ export default function Home() {
       <main>
         <div className="container">
           <Header />
-          <section class="hero is-fullheight">
-            <div class="hero-body">
+          <section className="hero is-fullheight">
+            <div className="hero-body">
               <div className="product columns is-align-items-center">
                 <div className="column">
                   <img src="/assets/image-product-1.jpg" />
@@ -44,19 +46,21 @@ export default function Home() {
                     <h6>{product.brand}</h6>
                     <h1>{product.name}</h1>
                     <p>{product.description}</p>
-                    {product.discount ?
-                      <>
-                        <h3>${product.price * product.discount_percent}.00 <span>{product.discount_percent * 100}%</span></h3>
-                        <h6 className="price">${product.price}</h6>
-                      </>
-                      :
-                      <h3>${product.price}</h3>
-                    }
+                    <div className="product-price">
+                      {product.discount ?
+                        <>
+                          <h3>${product.price * product.discount_percent}.00 <span>{product.discount_percent * 100}%</span></h3>
+                          <h6 className="price">${product.price}</h6>
+                        </>
+                        :
+                        <h3>${product.price}</h3>
+                      }
+                    </div>
                     <div className="product_checkout">
                       <div className="product_amount">
-                        <span className="icon"><ImMinus /></span>
-                        <span>3</span>
-                        <span className="icon"><ImPlus /></span>
+                        <span className="icon" onClick={() => setProductAmount(productAmount-1)} ><ImMinus /></span>
+                        <span>{productAmount}</span>
+                        <span className="icon" onClick={() => setProductAmount(productAmount+1)}><ImPlus /></span>
                       </div>
                       <button className="button is-primary">
                         <span className="icon is-large m-0"><BsCart3 /></span> Add to cart
