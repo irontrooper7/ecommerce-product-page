@@ -11,11 +11,9 @@ export default function ShoppingCart({ hasProduct }) {
                     <BsCart3 onClick={() => setShoppingCart(!shoppingCart)} />
                 </div>
                 {hasProduct && <div className="tag">3</div>}
-                <div className={`card ${shoppingCart ? 'is-active' : ''}` }>
+                <div className={`card ${shoppingCart ? 'is-active' : ''}`}>
                     <header className="card-header">
-                        <p className="card-header-title">
-                            Cart
-                        </p>
+                        <p className="card-header-title">Cart</p>
                     </header>
                     <div className="card-content">
                         {hasProduct ?

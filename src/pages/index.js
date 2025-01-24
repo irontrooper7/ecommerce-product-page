@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Header from "../../components/Header";
-import { BsCart3 } from "react-icons/bs";
-import { ImPlus, ImMinus } from "react-icons/im";
+import Slider from "../../components/Slider";
 import { useState } from "react";
+import { BsCart3 } from "react-icons/bs";
+import { ImCross, ImPlus, ImMinus } from "react-icons/im";
 
 
 
@@ -15,15 +16,17 @@ const product = {
   discount_percent: .50,
   inventory: 10,
   images: [
-    '/assets/image-product-1.jpg',
-    '/assets/image-product-2.jpg',
-    '/assets/image-product-3.jpg',
-    '/assets/image-product-4.jpg'
+    'image-product-1',
+    'image-product-2',
+    'image-product-3',
+    'image-product-4'
   ]
 }
 
 export default function Home() {
   const [productAmount, setProductAmount] = useState(0);
+  const [currentImage, setCurrentImage] = useState(0);
+  const [showSlider, setShowSlider] =useState(false);
   return (
     <>
       <Head>
@@ -39,7 +42,18 @@ export default function Home() {
             <div className="hero-body">
               <div className="product columns is-align-items-center">
                 <div className="column">
-                  <img src="/assets/image-product-1.jpg" />
+                  <div className="images-container">
+                    <div className="columns is-flex-wrap-wrap">
+                      <div className="column is-12">
+                        <img className="main-image" src={`/assets/${product.images[currentImage]}.jpg`} alt="Product Image" />
+                      </div>
+                      {product?.images.map((item, index) => (
+                        <div key={index} className="column is-3 thumbnail">
+                          <img onClick={() => (setCurrentImage(index), setShowSlider(true)) } className="thumbnail-image" src={`/assets/${item}.jpg`} alt="" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
                 <div className="column">
                   <div className="product-info">
@@ -58,9 +72,9 @@ export default function Home() {
                     </div>
                     <div className="product_checkout">
                       <div className="product_amount">
-                        <span className="icon" onClick={() => setProductAmount(productAmount-1)} ><ImMinus /></span>
+                        <span className="icon" onClick={() => setProductAmount(productAmount - 1)} ><ImMinus /></span>
                         <span>{productAmount}</span>
-                        <span className="icon" onClick={() => setProductAmount(productAmount+1)}><ImPlus /></span>
+                        <span className="icon" onClick={() => setProductAmount(productAmount + 1)}><ImPlus /></span>
                       </div>
                       <button className="button is-primary">
                         <span className="icon is-large m-0"><BsCart3 /></span> Add to cart
@@ -72,6 +86,9 @@ export default function Home() {
             </div>
           </section>
         </div>
+        <Slider data={product.images} currentSlide={currentImage} state={showSlider}>
+          <span className="icon is-large m-0" onClick={() => setShowSlider(false)}><ImCross /></span>
+        </Slider>
       </main>
     </>
   );
