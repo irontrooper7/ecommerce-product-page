@@ -1,14 +1,22 @@
 .product
     width: 100%
+    max-width: 450px
+    margin: auto
     .product-info
-        max-width: 450px
-        margin: auto
         h1
             color: $Black
             line-height: 1
             margin: 1rem 0px 1.75rem
         p
             margin: 0px 0px 1rem
+        h6
+            color: $primary
+    .product-price
+        display: flex
+        justify-content: space-between
+        align-items: center
+        h6
+            color: $Grayish-blue
         h3
             display: flex
             align-items: center
@@ -20,56 +28,47 @@
                 font-size: 0.5em
                 padding: 3px 8px
                 margin: 0px 0px 0px 1rem
-        h6
-            color: $primary
-        .product-price
+    .product_checkout
+        display: flex
+        flex-direction: column
+        margin: 2rem 0px 0px
+        .product_amount
+            background: $Light-grayish-blue
+            border-radius: 15px
             display: flex
             justify-content: space-between
-            align-items: center
-            h6
-                color: $Grayish-blue
+            margin: 0px 0px 1rem 0px
+            padding: 1rem
+            span
+                margin: 0px 1.5rem
+                font-weight: 700
+                color: $Black
+                &:first-child
+                    margin: 0px 1rem 0px 0px
+                &:last-child
+                    margin: 0px 0px 0px 1rem
+                &.icon
+                    color: $primary
+                    cursor: pointer
+        .button
+            border-radius: 15px
+            min-height: 56px
+
+@mixin product-desktop
+    .product
+        .product-price
+            display: table
         .product_checkout
             display: flex
-            flex-direction: column
+            flex-direction: row
             margin: 2rem 0px 0px
             .product_amount
-                background: $Light-grayish-blue
-                border-radius: 15px
-                display: flex
-                justify-content: space-between
-                margin: 0px 0px 1rem 0px
-                padding: 1rem
+                margin: 0px 1rem 0px 0px
                 span
                     margin: 0px 1.5rem
-                    font-weight: 700
-                    color: $Black
                     &:first-child
                         margin: 0px 1rem 0px 0px
                     &:last-child
                         margin: 0px 0px 0px 1rem
-                    &.icon
-                        color: $primary
-                        cursor: pointer
             .button
-                border-radius: 15px
                 min-height: 56px
-
-@mixin product-desktop
-    .product
-        .product-info
-            .product-price
-                display: table
-            .product_checkout
-                display: flex
-                flex-direction: row
-                margin: 2rem 0px 0px
-                .product_amount
-                    margin: 0px 1rem 0px 0px
-                    span
-                        margin: 0px 1.5rem
-                        &:first-child
-                            margin: 0px 1rem 0px 0px
-                        &:last-child
-                            margin: 0px 0px 0px 1rem
-                .button
-                    min-height: 56px

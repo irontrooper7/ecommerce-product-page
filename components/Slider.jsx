@@ -27,6 +27,7 @@ export default function Slider({ children, data, currentSlide, state }) {
 								</Swiper>
 								<Swiper
 									className='thumbsSwiper'
+									initialSlide={currentSlide}
 									onSwiper={setThumbsSwiper}
 									spaceBetween={10}
 									slidesPerView={4}

@@ -2,8 +2,8 @@ import Head from "next/head";
 import Header from "../../components/Header";
 import Slider from "../../components/Slider";
 import { useState } from "react";
-import { BsCart3 } from "react-icons/bs";
-import { ImCross, ImPlus, ImMinus } from "react-icons/im";
+import { ImCross } from "react-icons/im";
+import Product from "../../components/Product";
 
 
 
@@ -13,7 +13,7 @@ const product = {
   description: `These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.`,
   price: 250.00,
   discount: true,
-  discount_percent: .50,
+  discount_percent: 50,
   inventory: 10,
   images: [
     'image-product-1',
@@ -24,7 +24,6 @@ const product = {
 }
 
 export default function Home() {
-  const [productAmount, setProductAmount] = useState(0);
   const [currentImage, setCurrentImage] = useState(0);
   const [showSlider, setShowSlider] =useState(false);
   return (
@@ -40,7 +39,7 @@ export default function Home() {
           <Header />
           <section className="hero is-fullheight">
             <div className="hero-body">
-              <div className="product columns is-align-items-center">
+              <div className="columns is-align-items-center">
                 <div className="column">
                   <div className="images-container">
                     <div className="columns is-flex-wrap-wrap">
@@ -56,31 +55,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="column">
-                  <div className="product-info">
-                    <h6>{product.brand}</h6>
-                    <h1>{product.name}</h1>
-                    <p>{product.description}</p>
-                    <div className="product-price">
-                      {product.discount ?
-                        <>
-                          <h3>${product.price * product.discount_percent}.00 <span>{product.discount_percent * 100}%</span></h3>
-                          <h6 className="price">${product.price}</h6>
-                        </>
-                        :
-                        <h3>${product.price}</h3>
-                      }
-                    </div>
-                    <div className="product_checkout">
-                      <div className="product_amount">
-                        <span className="icon" onClick={() => setProductAmount(productAmount - 1)} ><ImMinus /></span>
-                        <span>{productAmount}</span>
-                        <span className="icon" onClick={() => setProductAmount(productAmount + 1)}><ImPlus /></span>
-                      </div>
-                      <button className="button is-primary">
-                        <span className="icon is-large m-0"><BsCart3 /></span> Add to cart
-                      </button>
-                    </div>
-                  </div>
+                  <Product data={product} />
                 </div>
               </div>
             </div>
