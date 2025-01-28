@@ -1,69 +1,59 @@
 .header
-    .navbar
-        display: flex
-        justify-content: space-between
-        align-items: flex-start
-        position: relative
-        .navbar-brand
-            .navbar-burger
-                margin: 0px
-        .navbar-menu
-            display: block
-            height: 100vh
-            padding: 0px
-            position: absolute
-            transform: translateX(-100%)
-            transition: all 0.3s ease-out
-            top: 100%
-            width: 60%
-            &.is-active
-                transform: translateX(0%)
-            .navbar-start
-                padding: 10px 5px
-                .navbar-item
-                    font-size: 16px
-                    font-weight: 700
-        .navbar-end
-            display: flex
-            align-items: center
-            .navbar-item
-                .avatar
-                    width: 40px
-                    height: 40px
-                    img
-                        max-height: inherit
-        .navbar-item
-            &:hover
-                background: none
-                color: $primary
-    .card
-        position: absolute
+	.navbar
+		position: relative
+		display: flex
+		justify-content: space-between
+		.navbar-brand
+			.navbar-burger
+				margin: 0px
+		.navbar-menu
+			position: absolute
+			z-index: 99
+			bottom: 0
+			left: 0
+			width: 60vw
+			height: 100vh
+			padding: 1rem 0.5rem
+			transition: all 0.3s
+			transform: translate(-100%, 100%)
+			&.is-active
+				transform: translate(0%, 100%)
+			.navbar-item
+				font-weight: 700
+		.navbar-user
+			display: flex
+			align-items: center
+			.navbar-item
+				position: inherit
+				.icon, .avatar img
+					vertical-align: middle
+				.avatar
+					border-radius: 50px
+					width: 25px
+					height: 25px
+					img
+						width: 100%
+						max-height: inherit
 
 @mixin header-desktop
-    .header
-        border-bottom: 1px solid $Grayish-blue
-        .navbar
-            align-items: flex-start
-            .navbar-menu
-                position: relative
-                transform: translateX(0%)
-                width: inherit
-                height: inherit
-                top: inherit
-                .navbar-start
-                    padding: 0px
-                    .navbar-item
-                        font-weight: 400
-                        margin: 0px 0.5rem
-                        padding: 1rem 0.75rem 3rem
-            .navbar-end
-                .navbar-item
-                    padding: 1rem 0.75rem 0.5rem
-                    margin-right: 2rem
-                    &:last-child
-                        margin: 0px
-                    .avatar
-                        width: 50px
-                        height: 50px
-                        img
-                            max-height: inherit
+	.header
+		border-bottom: 1px solid $Grayish-blue
+		.navbar
+			padding: 0 3rem
+			.navbar-menu
+				position: relative
+				transform: none
+				width: inherit
+				height: inherit
+				padding: 0
+				.navbar-item
+					font-weight: 400
+			.navbar-user
+				.navbar-item
+					.avatar
+						width: 35px
+						height: 35px
+						&:hover
+							border: 1px solid $primary
+							cursor: pointer
+

@@ -14,6 +14,7 @@ export default function Slider({ children, data, currentSlide, state }) {
 							<>
 								<Swiper
 									initialSlide={currentSlide}
+									slidesPerView={1}
 									spaceBetween={10}
 									navigation={true}
 									modules={[FreeMode, Navigation, Thumbs]}

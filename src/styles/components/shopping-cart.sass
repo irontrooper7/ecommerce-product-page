@@ -1,43 +1,60 @@
 .shopping-cart
-    position: relative
-    .cart
-        cursor: pointer
-        svg
-            font-size: 35px
-    .tag
-        border-radius: 50px
-        padding: 0px 8px
-        top: 0
-        right: -5px
-        font-size: 11px
-        font-weight: 700
-        color: $White
-        position: absolute
-        background: $primary
-        transform: translateY(-50%)
-    .card
-        display: none
-        position: absolute
-        min-width: 350px
-        top: calc( 100% + 10px )
-        left: 0
-        transform: translateX(calc( -50% + 20px ))
-        &.is-active
-            display: table
-        .card-content
-            padding: 1.5rem 1rem 0.5rem
-            .columns
-                .column
-                    padding: 0px 0.5rem
-                    img
-                        border-radius: 5px
-                        max-height: inherit
-                    .icon
-                        font-size: 1rem
-            .content
-                padding: 3rem 1rem
-        .card-footer
-            padding: 16px
-            border-top: none
-            .button
-                width: 100%
+	.cart
+		cursor: pointer
+		position: relative
+		svg
+			font-size: 35px
+		.tag
+			border-radius: 50px
+			width: 28px
+			height: 18px
+			top: 0
+			right: 0
+			position: absolute
+			background: $primary
+			transform: translate(50%, -50%)
+			p
+				font-size: 13px
+				font-weight: 700
+				color: $White
+				line-height: 0
+	.card
+		display: none
+		position: absolute
+		top: calc( 100% + 10px )
+		right: 0
+		width: calc( 100% - 30px )
+		margin: 15px
+		max-width: 425px
+		&.is-active
+			display: table
+		.card-content
+			padding: 1.5rem 1rem
+			img
+				border-radius: 5px
+				max-height: inherit
+				vertical-align: middle
+			p
+				padding: 0 10px
+			.icon
+				argin: 0
+				display: block
+				width: 100%
+				text-align: right
+				font-size: 1rem
+				color: $Grayish-blue
+			.button
+				margin: 1rem 0px 0px
+				width: 100%
+			.empty-content
+				padding: 3rem 1rem
+
+@mixin shopping-cart
+	.shopping-cart
+		position: relative
+		.card
+			width: inherit
+			min-width: 300px
+			top: 100%
+			left: 0
+			transform: translateX(-50%)

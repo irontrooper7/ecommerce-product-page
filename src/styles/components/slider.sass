@@ -1,43 +1,31 @@
 .slider
-	position: absolute
-	top: 0
-	left: 0
-	z-index: 99
 	width: 100%
 	height: 100%
-	display: flex
-	align-items: center
-	justify-content: center
-	background: rgb(0, 0, 0, 0.6)
-	display: none
 	&.is-active
 		display: flex
-	.images-container
-		max-width: 500px
-	.thumbsSwiper
-		margin: 5px 0 0
-	.swiper
-		.swiper-button-prev, .swiper-button-next
-			width: 40px
-			height: 40px
-			background: #fff
-			border-radius: 50px
-			&::after
-				font-size: 18px
-				color: $black
-			&:hover
-				&::after
-					color: $primary
-		.swiper-button-prev
-			left: 0
-			transform: translateX(-50%)
-		.swiper-button-next
-			right: 0
-			transform: translateX(50%)
-	.icon
-		display: flex
-		justify-content: flex-end
-		align-items: center
-		width: 100%
-		color: $primary
-		cursor: pointer
+
+	// .swiper
+	// 	.swiper-button-prev, .swiper-button-next
+	// 		width: 40px
+	// 		height: 40px
+	// 		background: #fff
+	// 		border-radius: 50px
+	// 		&::after
+	// 			font-size: 18px
+	// 			color: $black
+	// 		&:hover
+	// 			&::after
+	// 				color: $primary
+	// 	.swiper-button-prev
+	// 		left: 0
+	// 		transform: translateX(-50%)
+	// 	.swiper-button-next
+	// 		right: 0
+	// 		transform: translateX(50%)
+
+// @mixin slider-desktop
+// 	.slider
+// 		position: absolute
+// 		top: 0
+// 		left: 0
+// 		z-index: 99
