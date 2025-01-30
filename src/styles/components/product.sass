@@ -2,6 +2,7 @@
     width: 100%
     max-width: 450px
     margin: auto
+    padding: 0px 1.5rem
     .product-info
         h1
             color: $Black
@@ -39,23 +40,27 @@
             justify-content: space-between
             margin: 0px 0px 1rem 0px
             padding: 1rem
-            span
-                margin: 0px 1.5rem
-                font-weight: 700
-                color: $Black
+            button
+                background: none
+                padding: 0
+                margin: 0
+                width: 24px
+                border: none
                 &:first-child
                     margin: 0px 1rem 0px 0px
                 &:last-child
                     margin: 0px 0px 0px 1rem
-                &.icon
-                    color: $primary
+                span
+                    color: $Black
                     cursor: pointer
+                    font-weight: 700
         .button
             border-radius: 15px
             min-height: 56px
 
 @mixin product-desktop
     .product
+        padding: 0px
         .product-price
             display: table
         .product_checkout
@@ -64,11 +69,14 @@
             margin: 2rem 0px 0px
             .product_amount
                 margin: 0px 1rem 0px 0px
-                span
-                    margin: 0px 1.5rem
+                button
+                    &:hover
+                        span
+                            color: $primary
                     &:first-child
-                        margin: 0px 1rem 0px 0px
+                        margin: 0px 2rem 0px 0px
                     &:last-child
-                        margin: 0px 0px 0px 1rem
+                        margin: 0px 0px 0px 2rem
             .button
                 min-height: 56px
+                width: 100%

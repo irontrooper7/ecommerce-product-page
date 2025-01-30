@@ -23,9 +23,9 @@ export default function Product({ data }) {
 			</div>
 			<div className="product_checkout">
 				<div className="product_amount">
-					<span className="icon" onClick={() => setProductAmount(productAmount - 1)} ><ImMinus /></span>
+					<button disabled={productAmount <= 0 ? true : false} onClick={() => setProductAmount(productAmount - 1)}><span className="icon" ><ImMinus /></span></button>
 					<span>{productAmount}</span>
-					<span className="icon" onClick={() => setProductAmount(productAmount + 1)}><ImPlus /></span>
+					<button><span className="icon" onClick={() => setProductAmount(productAmount + 1)}><ImPlus /></span></button>
 				</div>
 				<button className="button is-primary">
 					<span className="icon is-large m-0"><BsCart3 /></span> Add to cart

@@ -1,9 +1,8 @@
 .images-container
-	max-width: 450px
+	max-width: 400px
 	margin: auto
-	img
-		border-radius: 15px
-	.thumbnail-image
-		cursor: pointer
-		&.is-active
-			border: solid 2px $primary
+
+@mixin images-container-desktop
+	.images-container
+		img
+			border-radius: 15px

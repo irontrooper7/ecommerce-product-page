@@ -17,7 +17,7 @@ const product = {
 		'image-product-1',
 		'image-product-2',
 		'image-product-3',
-		'image-product-4'
+		'image-product-4',
 	]
 }
 
@@ -36,9 +36,9 @@ export default function Home() {
 					<div className="hero-body">
 						<div className="container">
 							<div className="columns is-align-items-center">
-								{/* <div className="column">
-				<Gallery data={product.images} />
-				</div> */}
+								<div className="column">
+									<Gallery data={product.images} />
+								</div>
 								<div className="column">
 									<Product data={product} />
 								</div>
