@@ -25,7 +25,7 @@ const Slider = forwardRef(function Slider({ data, windowSize, initialSlide }, re
 							navigation={true}
 							loop={data.length > 4 ? true : false}
 							modules={[FreeMode, Navigation, Thumbs]}
-							thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
+							thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed && windowSize >= 1024 ? thumbsSwiper : null }}
 						>
 							{data?.map((item, index) => (
 								<SwiperSlide key={index}>
@@ -59,60 +59,3 @@ const Slider = forwardRef(function Slider({ data, windowSize, initialSlide }, re
 });
 
 export default Slider
-
-
-// export default function Slider({ data, desktop, ref }) {
-// 	const [thumbsSwiper, setThumbsSwiper] = useState(null);
-
-// 	function hideSlider() {
-// 		console.log(data);
-// 		if(desktop >= 1024) {
-// 			ref.current.classList.remove("is-active");
-// 		}
-// 	}
-// 	return (
-// 		<div ref={ref} className={`slider ${desktop === false ? 'is-mobile' : ''}`}>
-// 			<div className="slider-cont">
-// 				{desktop && <div className="icon is-small" onClick={() => hideSlider()}><ImCross /></div>}
-// 				{data &&
-// 					<>
-// 						<Swiper
-// 							// initialSlide={currentSlide}
-// 							slidesPerView={1}
-// 							spaceBetween={20}
-// 							navigation={true}
-// 							loop={true}
-// 							modules={[FreeMode, Navigation, Thumbs]}
-// 							thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-// 						>
-// 							{data?.map((item, index) => (
-// 								<SwiperSlide key={index}>
-// 									<img className="main-image" src={`/assets/${item}.jpg`} alt="Product Image" />
-// 								</SwiperSlide>
-// 							))}
-// 						</Swiper>
-// 						{desktop &&
-// 							<Swiper
-// 								className='thumbsSwiper'
-// 								// initialSlide={currentSlide}
-// 								onSwiper={setThumbsSwiper}
-// 								spaceBetween={30}
-// 								slidesPerView={4}
-// 								freeMode={true}
-// 								loop={data >= 4 ? true : false}
-// 								watchSlidesProgress={true}
-// 								modules={[FreeMode, Navigation, Thumbs]}
-// 							>
-// 								{data?.map((item, index) => (
-// 									<SwiperSlide key={index}>
-// 										<img className="main-image" src={`/assets/${item}.jpg`} alt="Product Image" />
-// 									</SwiperSlide>
-// 								))}
-// 							</Swiper>
-// 						}
-// 					</>
-// 				}
-// 			</div>
-// 		</div>
-// 	)
-// }

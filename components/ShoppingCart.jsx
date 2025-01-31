@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BsCart3 } from "react-icons/bs";
 import { FaTrashCan } from "react-icons/fa6";
 import { useCart } from "../context/CartContext";
@@ -6,10 +6,6 @@ import { useCart } from "../context/CartContext";
 export default function ShoppingCart() {
 	const [shoppingCart, setShoppingCart] = useState(false);
 	const { cart, clearCart } = useCart();
-
-	useEffect(() => {
-		console.log(cart);
-	}, [cart]);
 
 	const handleClearToCart = () => {
 		clearCart();

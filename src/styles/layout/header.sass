@@ -11,13 +11,20 @@
 			z-index: 99
 			bottom: 0
 			left: 0
-			width: 60vw
+			width: 100%
 			height: 100vh
 			padding: 1rem 0.5rem
 			transition: all 0.3s
 			transform: translate(-100%, 100%)
+			background: rgba(0, 0, 0, 0.5)
+			padding: 0px
 			&.is-active
 				transform: translate(0%, 100%)
+			.navbar-start
+				width: 60%
+				height: 100%
+				background: $white
+				padding: 1rem 0.5rem
 			.navbar-item
 				font-weight: 700
 		.navbar-user
@@ -45,7 +52,12 @@
 				transform: none
 				width: inherit
 				height: inherit
-				padding: 0
+				background: none
+				.navbar-start
+					width: inherit
+					height: inherit
+					padding: 0px
+					background: none
 				.navbar-item
 					font-weight: 400
 			.navbar-user

@@ -39,9 +39,9 @@ export default function Product({ data }) {
 			</div>
 			<div className="product_checkout">
 				<div className="product_amount">
-					<button disabled={quantity <= 0 ? true : false} onClick={() => setQuantity(quantity - 1)}><span className="icon" ><ImMinus /></span></button>
+					<button disabled={quantity <= 0 ? true : false} onClick={() => setQuantity(quantity - 1)}><ImMinus /></button>
 					<span>{quantity}</span>
-					<button><span className="icon" onClick={() => setQuantity(quantity + 1)}><ImPlus /></span></button>
+					<button onClick={() => setQuantity(quantity + 1)}><ImPlus /></button>
 				</div>
 				<button disabled={quantity <= 0 ? true : false} className="button is-primary" onClick={handleAddToCart}>
 					<span className="icon is-large m-0"><BsCart3 /></span> Add to cart

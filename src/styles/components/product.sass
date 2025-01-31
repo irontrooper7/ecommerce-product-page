@@ -46,19 +46,22 @@
                 margin: 0
                 width: 24px
                 border: none
+                color: $Black
+                cursor: pointer
+                font-weight: 700
                 &:first-child
                     margin: 0px 1rem 0px 0px
                 &:last-child
                     margin: 0px 0px 0px 1rem
-                span
-                    color: $Black
-                    cursor: pointer
-                    font-weight: 700
+            span
+                width: 20px
+                text-align: center
         .button
             border-radius: 15px
             min-height: 56px
             &:disabled
                 background: $primary
+                border: 1px solid $primary
 
 @mixin product-desktop
     .product
