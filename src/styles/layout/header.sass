@@ -58,8 +58,26 @@
 					height: inherit
 					padding: 0px
 					background: none
-				.navbar-item
-					font-weight: 400
+					margin: 0px auto 0 4rem
+					.navbar-item
+						font-weight: 400
+						position: relative
+						padding: 2rem 0.75rem
+						&::before
+							content: ''
+							width: 0
+							height: 2px
+							background: $primary
+							bottom: 0
+							left: 50%
+							position: absolute
+							transform: translateX(-50%)
+							transition: all 0.3s
+						&:hover
+							background: none
+							color: inherit
+							&::before
+								width: calc(100% - 1.5rem)
 			.navbar-user
 				.navbar-item
 					.avatar
