@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import ShoppingCart from './ShoppingCart';
 
-export default function Header({ data }) {
-
+export default function Header() {
 	const [menuStatus, setMenuStatus] = useState(false);
-
 	useEffect(() => {
 		window.addEventListener('scroll', function () {
 			if (menuStatus === true) {
@@ -38,7 +36,7 @@ export default function Header({ data }) {
 					</div>
 					<div className="navbar-user">
 						<div className="navbar-item">
-							<ShoppingCart product={null}/>
+							<ShoppingCart />
 						</div>
 						<div className="navbar-item">
 							<div className='avatar'>

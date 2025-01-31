@@ -9,10 +9,9 @@ const product = {
 	name: 'Fall Limited Edition Sneakers',
 	brand: 'Sneaker Company',
 	description: `These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.`,
-	price: 250.00,
+	price: 250,
 	discount: true,
 	discount_percent: 50,
-	quantity: 3,
 	images: [
 		'image-product-1',
 		'image-product-2',
@@ -31,7 +30,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.png" />
 			</Head>
 			<main>
-				<Header data={product} />
+				<Header />
 				<section className="hero is-fullheight">
 					<div className="hero-body">
 						<div className="container">
