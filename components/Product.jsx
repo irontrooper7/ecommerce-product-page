@@ -6,18 +6,20 @@ import { ImPlus, ImMinus } from "react-icons/im";
 export default function Product({ data }) {
 	const { addToCart } = useCart();
 	const [quantity, setQuantity] = useState(0);
-	let discountPrice = data.price * data.discount_percent / 100
-	let productPrice = data.price - discountPrice
-	const product = {
-		name: data.name,
-		image: data.images[0],
-		price: productPrice,
-		quantity: quantity
-	}
-	
+
+	const productPrice = data.price * (1 - data.discount_percent / 100);
+
 	const handleAddToCart = () => {
+		if (quantity === 0) return;
+
+		const product = {
+			name: data.name,
+			image: data.images[0],
+			price: productPrice,
+			quantity: quantity
+		}
+		setQuantity(0);
 		addToCart(product);
-		setQuantity(0)
 	};
 
 	return (
@@ -30,7 +32,7 @@ export default function Product({ data }) {
 			<div className="product-price">
 				{data.discount ?
 					<>
-						<h3>${productPrice}.00 <span>{data.discount_percent}%</span></h3>
+						<h3>${productPrice.toFixed(2)} <span>{data.discount_percent}%</span></h3>
 						<h6 className="price">${data.price}.00</h6>
 					</>
 					:

@@ -5,18 +5,21 @@ import { useCart } from "../context/CartContext";
 
 export default function ShoppingCart() {
 	const [shoppingCart, setShoppingCart] = useState(false);
-	const { cart, clearCart } = useCart();
+	const { cart, clearCart, removeFromCart } = useCart();
 
-	const handleClearToCart = () => {
+	const handleCheckout = () => {
+		console.log("Procesando pago...");
 		clearCart();
-		setShoppingCart(false)
 	};
+
+	const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+
 	return (
 		<>
 			<div className="shopping-cart">
 				<div className="icon cart" onClick={() => setShoppingCart(!shoppingCart)}>
 					<BsCart3 />
-					{cart.length > 0 && <div className="tag"><p>{cart[0].quantity}</p></div>}
+					{totalQuantity > 0 && <div className="tag"><p>{totalQuantity}</p></div>}
 				</div>
 				<div className={`card ${shoppingCart ? 'is-active' : ''}`}>
 					<header className="card-header">
@@ -24,22 +27,27 @@ export default function ShoppingCart() {
 					</header>
 					<div className="card-content">
 						{cart.length > 0 ?
-							<div className="columns is-mobile is-flex-wrap-wrap is-align-items-center is-gapless">
-								<div className="column is-2">
-									<img src={`/assets/${cart[0].image}-thumbnail.jpg`} alt="" />
-								</div>
-								<div className="column is-9">
-									{cart && <p>{cart[0].name} <br />${cart[0].price}.00 x {cart[0].quantity} <b>${cart[0].price * cart[0].quantity}.00</b></p>}
-								</div>
-								<div className="column is-1" >
-									<div className="icon" onClick={handleClearToCart}>
-										<FaTrashCan />
+							<>
+								{cart.map((item) => (
+									<div className="columns is-mobile is-flex-wrap-wrap is-align-items-center is-gapless" key={item.name}>
+										<div className="column is-2">
+											<img src={`/assets/${item.image}-thumbnail.jpg`} alt={item.name} />
+										</div>
+										<div className="column is-9">
+											<p>{item.name} <br />${item.price.toFixed(2)} x {item.quantity} <b>${(item.price * item.quantity).toFixed(2)}</b></p>
+										</div>
+										<div className="column is-1" >
+											<div className="icon" onClick={() => removeFromCart(item.name)}>
+												<FaTrashCan />
+											</div>
+										</div>
 									</div>
+								))}
+								<div className="column is-12 mt-4">
+									<button onClick={handleCheckout} className="button is-primary is-fullwidth">Checkout</button>
 								</div>
-								<div className="column is-12">
-									<button onClick={handleClearToCart} className="button is-primary">Checkout</button>
-								</div>
-							</div> :
+							</>
+							:
 							<div className="empty-content has-text-centered">
 								<p><b>Your cart is empty.</b></p>
 							</div>
